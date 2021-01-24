@@ -1,3 +1,12 @@
+/**
+ * Istenen markette bulunan malların bir listesinin ortaya konulması ve bu şekilde istenen ürünlerin 
+ * alışveriş sepetine alınarak satın alınmasının sağlamasıdır. 
+ * Bu alıştırmada sepete ekleme ve çıkarma işlemeri implemente edilmiş ve 
+ * alışveriş sepetinde bulunan ürünlerin fiyatının hesaplaması amaçlanmıtır.
+ */
+
+
+
 const selectedProducts = [];
 
 element = document.getElementById("productlist");
@@ -44,8 +53,6 @@ element.addEventListener("click", function (pEvent) {
                                         <button id=${index}>Remove</button> 
                                     </div>`;
         }
-
-
         let price = 
         priceCalcuation(selectedProducts);
 
@@ -127,9 +134,5 @@ function priceCalcuation(pProductsList){
     pProductsList.forEach(element => {
         total +=element.count*element.price; 
     });
-    return total;
+    return (Math.round(total * 1000)/1000).toFixed(2);
 }
-
-
-
-
