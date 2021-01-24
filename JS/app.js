@@ -1,9 +1,9 @@
 /**
  * In this task I implemented a basic market concept.
- * costumer can select the products with a add button and than 
- * he/she can reduce that product with remove button.
- * and the and with but button customer can see the total list and price 
- * of his/her shopping list.
+ * costumer can select the products with a add button (one or with multiple times) and than 
+ * he/she can reduce the corresponding items with remove button.
+ * With the buy button the customer can see the total list and price 
+ * of his/her shopping.
  */
 /**
  * implemented by habilozcan@gmail.com
@@ -51,7 +51,7 @@ element.addEventListener("click", function (pEvent) {
                                         <p>${newName}</p>
                                         <p>${newPrice} CH</p>
                                         <img src="${newImageSrc}">
-                                        <p>${newCount}</p>
+                                        <p>X ${newCount}</p>
                                         <button id=${index}>Remove</button> 
                                     </div>`;
         }
@@ -102,7 +102,7 @@ elementrem.addEventListener("click", function (pEvent) {
                                         <p>${newName}</p>
                                         <p>${newPrice} CH</p>
                                         <img src="${newImageSrc}">
-                                        <p>${newCount}</p>
+                                        <p>X ${newCount}</p>
                                         <button id=${index}>Remove</button> 
                                     </div>`;
             }
@@ -138,3 +138,16 @@ function priceCalcuation(pProductsList){
     });
     return (Math.round(total * 1000)/1000).toFixed(2);
 }
+elementbutton = document.getElementById("selectedproduct");
+elementbutton.addEventListener("click", function (pEvent) {
+    let button = pEvent.target;
+    if(button.id === "priceButton"){
+        let products ="";
+        selectedProducts.forEach(item=>{
+            products += item.productName+"  X  "+item.count+"\n";
+        });
+        products += "TOTAL  :  "+priceCalcuation(selectedProducts)+" CH";
+        alert(products);
+        location.reload();
+    }
+});

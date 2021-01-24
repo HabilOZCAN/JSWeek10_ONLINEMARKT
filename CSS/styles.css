@@ -33,7 +33,7 @@ footer {
     flex-direction: column;
 }
 #selectedproduct{
-    background: red; 
+    background: rgb(158, 161, 206); 
     width: 45%;
     flex-direction: column;
 }
@@ -46,14 +46,14 @@ footer {
 
 .generated p  {
     margin-top: 30px;
-    margin-left: 15px;
+    margin-left: 20px;
     color: rgb(8, 19, 5);
     width: 8vw;
 }
 .generated img{
     width: 80px;
     height: 80px;
-    padding-left: 1vw;
+    padding-left: 2vw;
     padding-right: 1vw ;
 }
 .generated button{
