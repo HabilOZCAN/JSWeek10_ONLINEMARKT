@@ -5,8 +5,6 @@
  * alışveriş sepetinde bulunan ürünlerin fiyatının hesaplaması amaçlanmıtır.
  */
 
-
-
 const selectedProducts = [];
 
 element = document.getElementById("productlist");
@@ -127,7 +125,6 @@ elementrem.addEventListener("click", function (pEvent) {
 
     } //Button If so all important event listener action should be upper of this currly breaket written.
 ); //end of action addEventListener....
-
 
 function priceCalcuation(pProductsList){
     let total = 0;
