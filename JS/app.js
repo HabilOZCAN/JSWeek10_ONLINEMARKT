@@ -1,18 +1,22 @@
 /**
- * Istenen markette bulunan malların bir listesinin ortaya konulması ve bu şekilde istenen ürünlerin 
- * alışveriş sepetine alınarak satın alınmasının sağlamasıdır. 
- * Bu alıştırmada sepete ekleme ve çıkarma işlemeri implemente edilmiş ve 
- * alışveriş sepetinde bulunan ürünlerin fiyatının hesaplaması amaçlanmıtır.
+ * In this task I implemented a basic market concept.
+ * costumer can select the products with a add button and than 
+ * he/she can reduce that product with remove button.
+ * and the and with but button customer can see the total list and price 
+ * of his/her shopping list.
  */
+/**
+ * implemented by habilozcan@gmail.com
+ */
+const selectedProducts = [];//the content can be increase and also decrease with custumer interection. 
 
-const selectedProducts = [];
-
-element = document.getElementById("productlist");
+element = document.getElementById("productlist");//to add the shopping cart and manupulate HTML file `element' "handle" is used.
 
 element.addEventListener("click", function (pEvent) {
     let button = pEvent.target;
     let parentDiv = document.getElementById('selectedproduct');
     let index = button.id;
+    
     if (pEvent.target.nodeName.toLowerCase() === "button") {
         if (selectedProducts.length !== 0 && selectedProducts.some(elem => elem.productName === productList[index].productName)) {
             let seachedIndex = selectedProducts.findIndex(item => item.productName === productList[index].productName);
@@ -61,14 +65,16 @@ element.addEventListener("click", function (pEvent) {
                                     <button id="priceButton">Buy</button>
                                 </div>
                             `
-    }
-});
+    }//end of if statement --with corresponding actions block-- which check the clicked element is button or not.
+});//end of addEventListener
 
-elementrem = document.getElementById("selectedproduct");
+elementrem = document.getElementById("selectedproduct");// to remove or reduce the product from the shopping cart and manupulate HTML file `elementrem' "handle" is used.
+
 elementrem.addEventListener("click", function (pEvent) {
         let button = pEvent.target;
         let parentDiv = document.getElementById('selectedproduct');
         let index = button.id;
+      
         if (pEvent.target.nodeName.toLowerCase() === "button") {
             if (selectedProducts[index].count === 1) {
                 selectedProducts.splice(index, 1);
@@ -78,7 +84,6 @@ elementrem.addEventListener("click", function (pEvent) {
         }
 
         if (selectedProducts.length !== 0) {
-
             parentDiv.innerHTML = "";
             parentDiv.innerHTML = `
                                 <i class="fa fa-shopping-cart"></i>
@@ -111,8 +116,8 @@ elementrem.addEventListener("click", function (pEvent) {
                                     <button id="priceButton">Buy</button>
                                 </div>
                             `
-        }//if block controls the the selectedProduct array not empty
-        else{
+        }//end of if block  which checks the selectedProduct is empty or not and corresponding actions..
+        else{//if the selectedProduct list is empty than the shopping cart section will be seen with empty area but the titles.
             parentDiv.innerHTML = "";
             parentDiv.innerHTML = `
                                 <i class="fa fa-shopping-cart"></i>
@@ -123,8 +128,8 @@ elementrem.addEventListener("click", function (pEvent) {
                                 </div>`;
         }
 
-    } //Button If so all important event listener action should be upper of this currly breaket written.
-); //end of action addEventListener....
+    } //end of if statement --with corresponding actions block-- which check the clicked element is button or not.
+); //end of action addEventListener.
 
 function priceCalcuation(pProductsList){
     let total = 0;

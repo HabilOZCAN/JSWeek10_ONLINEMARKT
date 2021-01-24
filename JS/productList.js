@@ -1,3 +1,6 @@
+/**
+ * implemented by habilozcan@gmail.com
+ */
 const productList = [{
         productName: "Aprikosen",
         price: 7.90,
