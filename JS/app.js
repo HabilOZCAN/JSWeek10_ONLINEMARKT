@@ -19,7 +19,7 @@ element.addEventListener("click", function (pEvent) {
             selectedProducts.push(tempElement);
         }
         parentDiv.innerHTML="";
-        parentDiv.innerHTML = `<div id = "selectedproduct" class="generated">
+        parentDiv.innerHTML = `
                                 <i class="fa fa-shopping-cart"></i>
                                 <div>
                                     <p>Product Name</p>
@@ -39,10 +39,7 @@ element.addEventListener("click", function (pEvent) {
                                         <p>${newCount}</p>
                                         <button id=${index}>Remove</button> 
                                     </div>`;
-        }
-        parentDiv.innerHTML+= `</div>`;
-    
-
+        }   
     }
 });
 
@@ -58,7 +55,7 @@ elementrem.addEventListener("click", function (pEvent) {
             selectedProducts[button.id].count -=1; }
         }
         parentDiv.innerHTML="";
-        parentDiv.innerHTML = `<div id = "selectedproduct" class="generated">
+        parentDiv.innerHTML = `
                                 <i class="fa fa-shopping-cart"></i>
                                 <div>
                                     <p>Product Name</p>
@@ -79,6 +76,5 @@ elementrem.addEventListener("click", function (pEvent) {
                                         <button id=${index}>Remove</button> 
                                     </div>`;
         }
-        parentDiv.innerHTML+= `</div>`;
     }
 );
